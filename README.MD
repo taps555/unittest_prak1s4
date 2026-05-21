@@ -204,13 +204,13 @@ module.exports = {
 Username valid:
 
 ```text
-admin
+nama_mu
 ```
 
 Password valid:
 
 ```text
-12345
+nbi
 ```
 
 ## Output
@@ -229,13 +229,13 @@ Password valid:
 ## Ekspektasi
 
 ```javascript
-login("admin","12345");
+login("nama_mu","nbi");
 // Login Berhasil
 
-login("user","12345");
+login("Trio_Adhi_Pamungkas_S","12345");
 // Username Salah
 
-login("admin","11111");
+login("nama_mu","1462200175");
 // Password Salah
 ```
 
