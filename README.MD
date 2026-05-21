@@ -12,7 +12,7 @@ NBI_Nama
 Contoh:
 
 ```text
-14622000071_Trio
+1462200175_TrioAdhiPamungkasS
 ```
 
 2. Inisialisasi project
