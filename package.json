@@ -1,16 +1,27 @@
 {
   "name": "sesi2soal",
   "version": "1.0.0",
-  "description": "",
+  "description": "Pada praktikum ini mahasiswa diharapkan mampu:",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taps555/unittest_prak1s4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taps555/unittest_prak1s4/issues"
+  },
+  "homepage": "https://github.com/taps555/unittest_prak1s4#readme",
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
 }
