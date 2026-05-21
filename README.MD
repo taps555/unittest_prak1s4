@@ -1,39 +1,33 @@
-# Praktikum 1 - Unit Testing dengan Jest
+# Praktikum Pengujian Perangkat Lunak
+## Unit Testing Menggunakan Jest
 
-## Tujuan Praktikum
+### Persiapan
 
-Pada praktikum ini mahasiswa diharapkan mampu:
+1. Buat folder dengan format:
 
-- Membuat project Node.js sederhana
-- Menggunakan Jest sebagai framework pengujian
-- Membuat unit test
-- Menjalankan pengujian menggunakan Jest
-- Menganalisis hasil coverage
-
----
-
-## Persiapan
-
-Buat folder dengan format:
-
-```
+```text
 NBI_Nama
 ```
 
 Contoh:
 
-```
-14622000071_TrioAdhiPamungkas
+```text
+14622000071_Trio
 ```
 
-Masuk ke folder project kemudian jalankan:
+2. Inisialisasi project
 
 ```bash
 npm init -y
+```
+
+3. Install Jest
+
+```bash
 npm install --save-dev jest
 ```
 
-Tambahkan script berikut pada file `package.json`:
+4. Ubah script pada `package.json`
 
 ```json
 "scripts": {
@@ -41,117 +35,97 @@ Tambahkan script berikut pada file `package.json`:
 }
 ```
 
+5. Jalankan testing
+
+```bash
+npm test
+```
+
+6. Lihat coverage
+
+```bash
+npx jest --coverage
+```
+
 ---
+
+# Soal 1 - Kalkulator Sederhana
 
 ## Struktur Folder
 
-```
-|---- src
-|      |
-|      └── nilai.js
+```text
+|-----> src
+|         kalkulator.js
 |
-|---- test
-|      |
-|      └── nilai.test.js
-|
-└── package.json
+|-----> test
+          kalkulator.test.js
 ```
 
----
+## Source Code
 
-# Soal
-
-Buat sebuah fungsi bernama `konversiNilai()` pada file `nilai.js`.
-
-Fungsi menerima sebuah parameter berupa nilai angka dan mengembalikan grade huruf sesuai ketentuan berikut:
-
-| Rentang Nilai | Grade |
-| ------------- | ----- |
-| 85 - 100      | A     |
-| 70 - 84       | B     |
-| 60 - 69       | C     |
-| 0 - 59        | D     |
-| < 0 atau >100 | Tidak Valid |
-
----
-
-## Contoh Penggunaan
+Lengkapi kode berikut:
 
 ```javascript
-konversiNilai(90);
+function tambah(a, b) {
+  return a + b;
+}
+
+function kurang(a, b) {
+  return a - b;
+}
+
+// TODO
+function kali(a, b) {
+
+}
+
+// TODO
+function bagi(a, b) {
+
+}
+
+module.exports = {
+  tambah,
+  kurang,
+};
 ```
-
-Output:
-
-```text
-A
-```
-
----
-
-```javascript
-konversiNilai(75);
-```
-
-Output:
-
-```text
-B
-```
-
----
-
-```javascript
-konversiNilai(65);
-```
-
-Output:
-
-```text
-C
-```
-
----
-
-```javascript
-konversiNilai(50);
-```
-
-Output:
-
-```text
-D
-```
-
----
-
-```javascript
-konversiNilai(-1);
-```
-
-Output:
-
-```text
-Tidak Valid
-```
-
----
-
-```javascript
-konversiNilai(120);
-```
-
-Output:
-
-```text
-Tidak Valid
-```
-
----
 
 ## Tugas
 
-### 1. File `src/nilai.js`
+1. Lengkapi fungsi `kali()`
+2. Lengkapi fungsi `bagi()`
+3. Tambahkan fungsi ke `module.exports`
+4. Buat unit test untuk seluruh fungsi
+
+## Ekspektasi
+
+```javascript
+tambah(10,5); // 15
+kurang(10,5); // 5
+kali(10,5);   // 50
+bagi(10,5);   // 2
+```
+
+### Target
+
+- Seluruh test PASS
+- Coverage minimal 100%
+
+---
+
+# Soal 2 - Konversi Nilai
+
+## Struktur Folder
+
+```text
+|-----> src
+|         nilai.js
+|
+|-----> test
+          nilai.test.js
+```
+
+## Source Code
 
 Lengkapi fungsi berikut:
 
@@ -165,82 +139,150 @@ module.exports = {
 };
 ```
 
----
+## Ketentuan
 
-### 2. File `test/nilai.test.js`
+| Nilai | Grade |
+|---------|---------|
+| 85 - 100 | A |
+| 70 - 84 | B |
+| 60 - 69 | C |
+| < 60 | D |
+| < 0 atau > 100 | Tidak Valid |
 
-Buat unit test untuk menguji kondisi berikut:
+## Tugas
 
-- Nilai 90 menghasilkan A
-- Nilai 75 menghasilkan B
-- Nilai 65 menghasilkan C
-- Nilai 50 menghasilkan D
-- Nilai -1 menghasilkan Tidak Valid
-- Nilai 120 menghasilkan Tidak Valid
+1. Buat logika konversi nilai
+2. Buat unit test untuk seluruh kemungkinan output
+3. Pastikan seluruh kondisi teruji
 
----
+## Ekspektasi
 
-## Menjalankan Pengujian
-
-```bash
-npm test
+```javascript
+konversiNilai(90);   // A
+konversiNilai(75);   // B
+konversiNilai(65);   // C
+konversiNilai(50);   // D
+konversiNilai(-1);   // Tidak Valid
+konversiNilai(120);  // Tidak Valid
 ```
 
----
+### Target
 
-## Menampilkan Coverage
-
-```bash
-npx jest --coverage
-```
+- Seluruh test PASS
+- Branch Coverage 100%
 
 ---
 
-## Ekspektasi Hasil Testing
+# Soal 3 - Validasi Login
+
+## Struktur Folder
 
 ```text
-PASS test/nilai.test.js
-
-✓ nilai 90 menghasilkan A
-✓ nilai 75 menghasilkan B
-✓ nilai 65 menghasilkan C
-✓ nilai 50 menghasilkan D
-✓ nilai -1 menghasilkan Tidak Valid
-✓ nilai 120 menghasilkan Tidak Valid
-
-Test Suites: 1 passed, 1 total
-Tests:       6 passed, 6 total
+|-----> src
+|         login.js
+|
+|-----> test
+          login.test.js
 ```
 
----
+## Source Code
 
-## Ekspektasi Coverage
+Lengkapi fungsi berikut:
+
+```javascript
+function login(username, password) {
+  // TODO
+}
+
+module.exports = {
+  login,
+};
+```
+
+## Ketentuan
+
+Username valid:
 
 ```text
-------------------|---------|----------|---------|---------|
-File              | % Stmts | % Branch | % Funcs | % Lines |
-------------------|---------|----------|---------|---------|
-All files         |   100   |   100    |   100   |   100   |
-nilai.js          |   100   |   100    |   100   |   100   |
-------------------|---------|----------|---------|---------|
+admin
 ```
+
+Password valid:
+
+```text
+12345
+```
+
+## Output
+
+| Kondisi | Output |
+|----------|---------|
+| Username dan password benar | Login Berhasil |
+| Username salah | Username Salah |
+| Password salah | Password Salah |
+
+## Tugas
+
+1. Buat logika login
+2. Buat unit test untuk seluruh kondisi
+
+## Ekspektasi
+
+```javascript
+login("admin","12345");
+// Login Berhasil
+
+login("user","12345");
+// Username Salah
+
+login("admin","11111");
+// Password Salah
+```
+
+### Target
+
+- Seluruh test PASS
+- Coverage minimal 100%
 
 ---
 
-## Ketentuan Pengumpulan
+# Pengumpulan
 
-1. Push project ke GitHub.
-2. Sertakan file source code dan unit test.
-3. Sertakan screenshot hasil:
+1. Push project ke GitHub
+2. Sertakan:
+   - Source code
+   - Unit test
+   - Hasil coverage
+3. Kirim URL repository GitHub
 
-```bash
-npm test
+## Contoh Struktur Repository
+
+```text
+NBI_Nama
+│
+├── src
+│   ├── kalkulator.js
+│   ├── nilai.js
+│   └── login.js
+│
+├── test
+│   ├── kalkulator.test.js
+│   ├── nilai.test.js
+│   └── login.test.js
+│
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
 ```
 
-dan
+## Kriteria Penilaian
 
-```bash
-npx jest --coverage
-```
+| Komponen | Bobot |
+|-----------|--------|
+| Implementasi Fungsi | 40% |
+| Unit Testing | 30% |
+| Coverage Testing | 20% |
+| Kerapihan Repository | 10% |
 
-4. Upload link repository pada LMS.
+Nilai maksimal diberikan apabila seluruh test berhasil dan coverage mencapai 100%.
